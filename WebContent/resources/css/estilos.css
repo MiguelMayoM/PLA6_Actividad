@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+/* No funciona en Eclipse
+:root {
+	--color-pri: #0c58e8;
+	--color-sec: #f7ff00; }
+*/
+
+* {
+	box-sizing: border-box;
+	padding: 0; margin: 0; }
+	
+body {
+	font-family: Montserrat, Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /*La siguiente instrucción es sólo para una nota inferior, que declara el
+  	problema que detallo a continuación*/
+  position:relative; }
+
+/*En Eclipse no funcionan todos los comandos "Flex", y no se ve pegado el footer
+	pegado al fondo de la página si esta es demasiado alta. En un navegador actual
+	sí. De hecho, también ocurre que, si pongo "flex:1", que produce buen resultado
+	en el navegador, aquí en Eclipse se ven header y footer enganchados*/
+main {
+	flex: 1 auto; 
+	padding: 10px 0; }
+
+body > header, footer {
+	padding: 30px 0;
+	background-color:  #0c58e8; /*var(--color-pri);*/
+	color: #f7ff00; /*var(--color-sec);*/ }
+
+h1, h2 {
+	font-family: Oswald, Verdana, sans-serif; }	
+h3, h4 {
+	font-family: Roboto, Verdana, sans-serif; }
+	
+h1 {
+	font-size: 48px;
+	line-height: 48px; }
+h2, h3 {
+	font-size: 20px;
+	line-height: 20px; }
+h4{
+	font-size: 20px;
+	line-height: 20px; }
+h3 {font-weight: 700; } 
+h4 {font-weight: 400; }
+
+.cont_pagina {
+	margin: 0 auto;
+	padding: 0 30px;
+	overflow: hidden;
+	max-width: 900px;
+	min-width: 600px; }
+
+/*--------------------------- Header principal -------------------------------*/
+.hdr_ppal .cont_pagina {
+	display: flex;
+	justify-content: space-between;	}
+	
+.logo_link {
+	color: #f7ff00; /*var(--color-sec);*/ 
+	text-decoration: none; }
+.hdr_ppal h1 {
+	align-self: flex-start;}
+.hdr_ppal h2 {
+	text-align:right;
+	align-self: flex-end; }
+
+section {
+	padding-bottom: 15px; }
+
+p {margin: 5px 0 10px 0;}
+
+/*----------------------------- inicio.jsp -----------------------------------*/
+ul {padding-left: 15px;}
+
+.formulario_link {
+	margin: 5px 0;
+	display: block; }
+.formulario_link span{
+	font-size: 14px; }
+
+/*------------------------ alumno-formulario.jsp -----------------------------*/
+.datos {
+	border: 2px solid #aaa;
+	border-radius: 3px;
+	padding: 10px;
+	margin: 10px 0; }
+.datos > p {
+	margin: 5px 0 30px 0; }
+.datos p > * {
+	display: block; }
+.datos p > input {
+	height: 30px;
+	border: 2px solid #ccc;
+	border-radius: 3px;
+	font-size: 14px;
+	color: #444; 
+	padding: 5px 10px; 
+	margin: 5px 0; }
+.datos input:focus {
+	border-color: #0c58e8; }
+
+fieldset {
+	border: none;
+	margin: 10px 0; 
+	padding-bottom: 20px; }
+
+::placeholder{
+	color: #aaa; 
+	opacity: 1; }
+
+.formulario ul {
+	display: flex; }
+.formulario li {
+	display: inline-block;
+	flex-basis: 100px;
+	padding: 5px 0; }
+
+input[type="submit"] {
+	width: 120px;
+	height: 30px; 
+	font-size: 16px; }
+
+.error {
+	color:red;
+	/*Dejaremos el espacio suficiente debajo de los elementos que puedan dar error
+		y entonces ponemos position:absolute para que este span de error se coloque
+		en ese esapcio sin reubicar/desplazar ningún elemento*/
+	position:absolute;
+	font-size: 14px; }
+
+/*------------------------ alumno-registrado.jsp -----------------------------*/
+.datos p > span, .datos div > span {
+	display: inline-block; }
+.registrado .datos p > span:first-of-type {
+	margin-top: 15px;
+	width: 250px; }
+.registrado .datos div > span {	
+	width: 250px; }
+.registrado ul {
+	display: inline-block; }
+div > span {vertical-align: top; }
+.registrado .datos p {
+	margin: 5px 0 10px 0; }
+
+/*--------------------------- Footer General ---------------------------------*/
+footer > * {
+	font-size: 14px;
+	color:black; }
+footer img {
+	width: 320px; }
+address a {
+	color:white; }
+footer .cont_pagina {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.nota {position:absolute; color:red; bottom:0; z-index:-1;}
